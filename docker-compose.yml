@@ -1,0 +1,17 @@
+version: '3'
+services:
+  gcp:
+    image: google/cloud-sdk:alpine
+    volumes:
+      - .:/app/terraform
+      - gcloud-config:/root/.config
+    env_file: .env
+  terraform:
+    image: hashicorp/terraform:1.1.2
+    volumes:
+      - .:/app/terraform
+      - gcloud-config:/root/.config
+    env_file: .env
+    working_dir: /app/terraform
+volumes:
+  gcloud-config: null
