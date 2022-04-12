@@ -1,4 +1,3 @@
-
 resource "google_compute_network" "this" {
   name = var.gcp_project
 
